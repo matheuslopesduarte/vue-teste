@@ -20,4 +20,10 @@ const router = createRouter({
   ],
 })
 
+router.afterEach((to, from) => {
+  if (window.rybbit && typeof window.rybbit.pageview === 'function') {
+    window.rybbit.pageview();
+  }
+});
+
 export default router
